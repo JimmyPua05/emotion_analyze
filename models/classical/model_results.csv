@@ -1,0 +1,21 @@
+model_id,display_name,feature_method,classifier,model_path,ngram_range,accuracy,precision,recall,f1
+count_unigram__naive_bayes,Count Unigram + Naive Bayes,Count Unigram,Naive Bayes,models\classical\count_unigram__naive_bayes.joblib,"(1, 1)",0.816,0.8173275619836691,0.816,0.8040653758783051
+count_unigram__logistic_regression,Count Unigram + Logistic Regression,Count Unigram,Logistic Regression,models\classical\count_unigram__logistic_regression.joblib,"(1, 1)",0.8925,0.8987222779631201,0.8925,0.8942116393507399
+count_unigram__svm,Count Unigram + SVM,Count Unigram,SVM,models\classical\count_unigram__svm.joblib,"(1, 1)",0.889,0.8885514475891172,0.889,0.8886280926988218
+count_unigram__random_forest,Count Unigram + Random Forest,Count Unigram,Random Forest,models\classical\count_unigram__random_forest.joblib,"(1, 1)",0.88275,0.8946849808297682,0.88275,0.885696210244174
+count_bigram__naive_bayes,Count Bigram + Naive Bayes,Count Bigram,Naive Bayes,models\classical\count_bigram__naive_bayes.joblib,"(1, 2)",0.80225,0.8115797024179775,0.80225,0.78657208302949
+count_bigram__logistic_regression,Count Bigram + Logistic Regression,Count Bigram,Logistic Regression,models\classical\count_bigram__logistic_regression.joblib,"(1, 2)",0.897,0.900926535229038,0.897,0.8982627522984546
+count_bigram__svm,Count Bigram + SVM,Count Bigram,SVM,models\classical\count_bigram__svm.joblib,"(1, 2)",0.89975,0.899012653741793,0.89975,0.899078145077238
+count_bigram__random_forest,Count Bigram + Random Forest,Count Bigram,Random Forest,models\classical\count_bigram__random_forest.joblib,"(1, 2)",0.889,0.8990444885497283,0.889,0.8915129187791959
+tfidf_unigram__naive_bayes,TF-IDF Unigram + Naive Bayes,TF-IDF Unigram,Naive Bayes,models\classical\tfidf_unigram__naive_bayes.joblib,"(1, 1)",0.69,0.7283958237354597,0.69,0.6272806239784907
+tfidf_unigram__logistic_regression,TF-IDF Unigram + Logistic Regression,TF-IDF Unigram,Logistic Regression,models\classical\tfidf_unigram__logistic_regression.joblib,"(1, 1)",0.88375,0.8930433093967747,0.88375,0.8860883503510014
+tfidf_unigram__svm,TF-IDF Unigram + SVM,TF-IDF Unigram,SVM,models\classical\tfidf_unigram__svm.joblib,"(1, 1)",0.89375,0.8932586744477019,0.89375,0.8933501793640982
+tfidf_unigram__random_forest,TF-IDF Unigram + Random Forest,TF-IDF Unigram,Random Forest,models\classical\tfidf_unigram__random_forest.joblib,"(1, 1)",0.88025,0.8922088205605212,0.88025,0.8830190551434313
+tfidf_bigram__naive_bayes,TF-IDF Bigram + Naive Bayes,TF-IDF Bigram,Naive Bayes,models\classical\tfidf_bigram__naive_bayes.joblib,"(1, 2)",0.67125,0.7679163748005233,0.67125,0.6017455662607236
+tfidf_bigram__logistic_regression,TF-IDF Bigram + Logistic Regression,TF-IDF Bigram,Logistic Regression,models\classical\tfidf_bigram__logistic_regression.joblib,"(1, 2)",0.889,0.8972243200089,0.889,0.8908930073026381
+tfidf_bigram__svm,TF-IDF Bigram + SVM,TF-IDF Bigram,SVM,models\classical\tfidf_bigram__svm.joblib,"(1, 2)",0.902,0.9017667158151744,0.902,0.9017382839398206
+tfidf_bigram__random_forest,TF-IDF Bigram + Random Forest,TF-IDF Bigram,Random Forest,models\classical\tfidf_bigram__random_forest.joblib,"(1, 2)",0.88275,0.8926160216811322,0.88275,0.8850037229733505
+word2vec__logistic_regression,Word2Vec + Logistic Regression,Word2Vec,Logistic Regression,models\classical\word2vec__logistic_regression.joblib,not applicable,0.441,0.5302194022888495,0.441,0.4680359758807706
+word2vec__svm,Word2Vec + SVM,Word2Vec,SVM,models\classical\word2vec__svm.joblib,not applicable,0.52675,0.5022394993286338,0.52675,0.4738666009101529
+word2vec__random_forest,Word2Vec + Random Forest,Word2Vec,Random Forest,models\classical\word2vec__random_forest.joblib,not applicable,0.47575,0.44891597350409,0.47575,0.4501629336095779
+distilbert,DistilBERT,Transformer,DistilBERT,models/distilbert_emotion,not applicable,0.9565,0.9567428696142654,0.9565,0.9564976753278538

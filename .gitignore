@@ -1,0 +1,30 @@
+# ── All trained model files ────────────────────────────────────────────────────
+models/classical/*.joblib
+models/classical/*.model
+models/distilbert_emotion/
+notebooks/distilbert_demo/
+
+# ── Python cache ──────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+
+# ── Streamlit logs ────────────────────────────────────────────────────────────
+streamlit*.log
+streamlit*.err.log
+streamlit*.out.log
+
+# ── OS / editor ───────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ── Virtual environments ──────────────────────────────────────────────────────
+.venv/
+venv/
+env/
+
+# ── Jupyter checkpoints ───────────────────────────────────────────────────────
+.ipynb_checkpoints/

@@ -1,0 +1,2260 @@
+[
+  {
+    "model_id": "count_unigram__naive_bayes",
+    "display_name": "Count Unigram + Naive Bayes",
+    "feature_method": "Count Unigram",
+    "classifier": "Naive Bayes",
+    "model_path": "models\\classical\\count_unigram__naive_bayes.joblib",
+    "ngram_range": "(1, 1)",
+    "classification_report": {
+      "sadness": {
+        "precision": 0.8004467609828742,
+        "recall": 0.9275237273511648,
+        "f1-score": 0.8593125499600319,
+        "support": 1159.0
+      },
+      "joy": {
+        "precision": 0.8135922330097087,
+        "recall": 0.9297337278106509,
+        "f1-score": 0.8677942699344149,
+        "support": 1352.0
+      },
+      "love": {
+        "precision": 0.8241206030150754,
+        "recall": 0.5,
+        "f1-score": 0.6223908918406073,
+        "support": 328.0
+      },
+      "anger": {
+        "precision": 0.864516129032258,
+        "recall": 0.7416974169741697,
+        "f1-score": 0.7984111221449851,
+        "support": 542.0
+      },
+      "fear": {
+        "precision": 0.8201970443349754,
+        "recall": 0.7010526315789474,
+        "f1-score": 0.7559591373439274,
+        "support": 475.0
+      },
+      "surprise": {
+        "precision": 0.7857142857142857,
+        "recall": 0.22916666666666666,
+        "f1-score": 0.3548387096774194,
+        "support": 144.0
+      },
+      "accuracy": 0.816,
+      "macro avg": {
+        "precision": 0.8180978426815294,
+        "recall": 0.6715290283969333,
+        "f1-score": 0.7097844468168976,
+        "support": 4000.0
+      },
+      "weighted avg": {
+        "precision": 0.8173275619836691,
+        "recall": 0.816,
+        "f1-score": 0.8040653758783051,
+        "support": 4000.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        1075,
+        42,
+        5,
+        23,
+        13,
+        1
+      ],
+      [
+        46,
+        1257,
+        23,
+        11,
+        11,
+        4
+      ],
+      [
+        32,
+        124,
+        164,
+        4,
+        4,
+        0
+      ],
+      [
+        77,
+        44,
+        3,
+        402,
+        16,
+        0
+      ],
+      [
+        82,
+        32,
+        3,
+        21,
+        333,
+        4
+      ],
+      [
+        31,
+        46,
+        1,
+        4,
+        29,
+        33
+      ]
+    ],
+    "accuracy": 0.816,
+    "precision": 0.8173275619836691,
+    "recall": 0.816,
+    "f1": 0.8040653758783051
+  },
+  {
+    "model_id": "count_unigram__logistic_regression",
+    "display_name": "Count Unigram + Logistic Regression",
+    "feature_method": "Count Unigram",
+    "classifier": "Logistic Regression",
+    "model_path": "models\\classical\\count_unigram__logistic_regression.joblib",
+    "ngram_range": "(1, 1)",
+    "classification_report": {
+      "sadness": {
+        "precision": 0.9460431654676259,
+        "recall": 0.907679033649698,
+        "f1-score": 0.9264641127256715,
+        "support": 1159.0
+      },
+      "joy": {
+        "precision": 0.9470404984423676,
+        "recall": 0.8994082840236687,
+        "f1-score": 0.9226100151745068,
+        "support": 1352.0
+      },
+      "love": {
+        "precision": 0.7388059701492538,
+        "recall": 0.9054878048780488,
+        "f1-score": 0.8136986301369863,
+        "support": 328.0
+      },
+      "anger": {
+        "precision": 0.8661844484629295,
+        "recall": 0.8837638376383764,
+        "f1-score": 0.8748858447488584,
+        "support": 542.0
+      },
+      "fear": {
+        "precision": 0.8547008547008547,
+        "recall": 0.8421052631578947,
+        "f1-score": 0.848356309650053,
+        "support": 475.0
+      },
+      "surprise": {
+        "precision": 0.6961325966850829,
+        "recall": 0.875,
+        "f1-score": 0.7753846153846153,
+        "support": 144.0
+      },
+      "accuracy": 0.8925,
+      "macro avg": {
+        "precision": 0.8414845889846857,
+        "recall": 0.8855740372246145,
+        "f1-score": 0.8602332546367819,
+        "support": 4000.0
+      },
+      "weighted avg": {
+        "precision": 0.8987222779631201,
+        "recall": 0.8925,
+        "f1-score": 0.8942116393507399,
+        "support": 4000.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        1052,
+        20,
+        13,
+        43,
+        23,
+        8
+      ],
+      [
+        18,
+        1216,
+        78,
+        13,
+        14,
+        13
+      ],
+      [
+        1,
+        26,
+        297,
+        2,
+        2,
+        0
+      ],
+      [
+        25,
+        14,
+        8,
+        479,
+        16,
+        0
+      ],
+      [
+        15,
+        5,
+        6,
+        15,
+        400,
+        34
+      ],
+      [
+        1,
+        3,
+        0,
+        1,
+        13,
+        126
+      ]
+    ],
+    "accuracy": 0.8925,
+    "precision": 0.8987222779631201,
+    "recall": 0.8925,
+    "f1": 0.8942116393507399
+  },
+  {
+    "model_id": "count_unigram__svm",
+    "display_name": "Count Unigram + SVM",
+    "feature_method": "Count Unigram",
+    "classifier": "SVM",
+    "model_path": "models\\classical\\count_unigram__svm.joblib",
+    "ngram_range": "(1, 1)",
+    "classification_report": {
+      "sadness": {
+        "precision": 0.919451585261354,
+        "recall": 0.9257981018119068,
+        "f1-score": 0.9226139294926913,
+        "support": 1159.0
+      },
+      "joy": {
+        "precision": 0.9127272727272727,
+        "recall": 0.9282544378698225,
+        "f1-score": 0.9204253758709204,
+        "support": 1352.0
+      },
+      "love": {
+        "precision": 0.7876106194690266,
+        "recall": 0.8140243902439024,
+        "f1-score": 0.800599700149925,
+        "support": 328.0
+      },
+      "anger": {
+        "precision": 0.8897338403041825,
+        "recall": 0.8634686346863468,
+        "f1-score": 0.8764044943820225,
+        "support": 542.0
+      },
+      "fear": {
+        "precision": 0.8506493506493507,
+        "recall": 0.8273684210526315,
+        "f1-score": 0.8388473852721452,
+        "support": 475.0
+      },
+      "surprise": {
+        "precision": 0.7633587786259542,
+        "recall": 0.6944444444444444,
+        "f1-score": 0.7272727272727273,
+        "support": 144.0
+      },
+      "accuracy": 0.889,
+      "macro avg": {
+        "precision": 0.8539219078395234,
+        "recall": 0.8422264050181757,
+        "f1-score": 0.8476939354067387,
+        "support": 4000.0
+      },
+      "weighted avg": {
+        "precision": 0.8885514475891172,
+        "recall": 0.889,
+        "f1-score": 0.8886280926988218,
+        "support": 4000.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        1073,
+        26,
+        9,
+        27,
+        19,
+        5
+      ],
+      [
+        21,
+        1255,
+        51,
+        8,
+        12,
+        5
+      ],
+      [
+        3,
+        52,
+        267,
+        3,
+        3,
+        0
+      ],
+      [
+        37,
+        21,
+        5,
+        468,
+        11,
+        0
+      ],
+      [
+        26,
+        10,
+        6,
+        19,
+        393,
+        21
+      ],
+      [
+        7,
+        11,
+        1,
+        1,
+        24,
+        100
+      ]
+    ],
+    "accuracy": 0.889,
+    "precision": 0.8885514475891172,
+    "recall": 0.889,
+    "f1": 0.8886280926988218
+  },
+  {
+    "model_id": "count_unigram__random_forest",
+    "display_name": "Count Unigram + Random Forest",
+    "feature_method": "Count Unigram",
+    "classifier": "Random Forest",
+    "model_path": "models\\classical\\count_unigram__random_forest.joblib",
+    "ngram_range": "(1, 1)",
+    "classification_report": {
+      "sadness": {
+        "precision": 0.9603024574669187,
+        "recall": 0.8766177739430544,
+        "f1-score": 0.9165539016689219,
+        "support": 1159.0
+      },
+      "joy": {
+        "precision": 0.9487590072057646,
+        "recall": 0.8764792899408284,
+        "f1-score": 0.9111880046136102,
+        "support": 1352.0
+      },
+      "love": {
+        "precision": 0.6879271070615034,
+        "recall": 0.9207317073170732,
+        "f1-score": 0.78748370273794,
+        "support": 328.0
+      },
+      "anger": {
+        "precision": 0.8578947368421053,
+        "recall": 0.9022140221402214,
+        "f1-score": 0.8794964028776978,
+        "support": 542.0
+      },
+      "fear": {
+        "precision": 0.8366935483870968,
+        "recall": 0.8736842105263158,
+        "f1-score": 0.854788877445932,
+        "support": 475.0
+      },
+      "surprise": {
+        "precision": 0.6595744680851063,
+        "recall": 0.8611111111111112,
+        "f1-score": 0.7469879518072289,
+        "support": 144.0
+      },
+      "accuracy": 0.88275,
+      "macro avg": {
+        "precision": 0.8251918875080827,
+        "recall": 0.8851396858297674,
+        "f1-score": 0.8494164735252218,
+        "support": 4000.0
+      },
+      "weighted avg": {
+        "precision": 0.8946849808297682,
+        "recall": 0.88275,
+        "f1-score": 0.885696210244174,
+        "support": 4000.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        1016,
+        26,
+        23,
+        50,
+        33,
+        11
+      ],
+      [
+        21,
+        1185,
+        100,
+        13,
+        14,
+        19
+      ],
+      [
+        0,
+        20,
+        302,
+        1,
+        3,
+        2
+      ],
+      [
+        14,
+        17,
+        7,
+        489,
+        14,
+        1
+      ],
+      [
+        6,
+        0,
+        7,
+        16,
+        415,
+        31
+      ],
+      [
+        1,
+        1,
+        0,
+        1,
+        17,
+        124
+      ]
+    ],
+    "accuracy": 0.88275,
+    "precision": 0.8946849808297682,
+    "recall": 0.88275,
+    "f1": 0.885696210244174
+  },
+  {
+    "model_id": "count_bigram__naive_bayes",
+    "display_name": "Count Bigram + Naive Bayes",
+    "feature_method": "Count Bigram",
+    "classifier": "Naive Bayes",
+    "model_path": "models\\classical\\count_bigram__naive_bayes.joblib",
+    "ngram_range": "(1, 2)",
+    "classification_report": {
+      "sadness": {
+        "precision": 0.7948148148148149,
+        "recall": 0.9257981018119068,
+        "f1-score": 0.8553208449581506,
+        "support": 1159.0
+      },
+      "joy": {
+        "precision": 0.7750611246943765,
+        "recall": 0.9378698224852071,
+        "f1-score": 0.8487282463186078,
+        "support": 1352.0
+      },
+      "love": {
+        "precision": 0.8322981366459627,
+        "recall": 0.40853658536585363,
+        "f1-score": 0.5480572597137015,
+        "support": 328.0
+      },
+      "anger": {
+        "precision": 0.8787878787878788,
+        "recall": 0.6955719557195572,
+        "f1-score": 0.776519052523172,
+        "support": 542.0
+      },
+      "fear": {
+        "precision": 0.8367346938775511,
+        "recall": 0.6905263157894737,
+        "f1-score": 0.7566320645905421,
+        "support": 475.0
+      },
+      "surprise": {
+        "precision": 0.90625,
+        "recall": 0.2013888888888889,
+        "f1-score": 0.32954545454545453,
+        "support": 144.0
+      },
+      "accuracy": 0.80225,
+      "macro avg": {
+        "precision": 0.8373244414700974,
+        "recall": 0.643281945010148,
+        "f1-score": 0.6858004871082715,
+        "support": 4000.0
+      },
+      "weighted avg": {
+        "precision": 0.8115797024179775,
+        "recall": 0.80225,
+        "f1-score": 0.78657208302949,
+        "support": 4000.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        1073,
+        66,
+        1,
+        13,
+        6,
+        0
+      ],
+      [
+        50,
+        1268,
+        21,
+        8,
+        4,
+        1
+      ],
+      [
+        40,
+        148,
+        134,
+        3,
+        3,
+        0
+      ],
+      [
+        86,
+        61,
+        2,
+        377,
+        16,
+        0
+      ],
+      [
+        76,
+        43,
+        2,
+        24,
+        328,
+        2
+      ],
+      [
+        25,
+        50,
+        1,
+        4,
+        35,
+        29
+      ]
+    ],
+    "accuracy": 0.80225,
+    "precision": 0.8115797024179775,
+    "recall": 0.80225,
+    "f1": 0.78657208302949
+  },
+  {
+    "model_id": "count_bigram__logistic_regression",
+    "display_name": "Count Bigram + Logistic Regression",
+    "feature_method": "Count Bigram",
+    "classifier": "Logistic Regression",
+    "model_path": "models\\classical\\count_bigram__logistic_regression.joblib",
+    "ngram_range": "(1, 2)",
+    "classification_report": {
+      "sadness": {
+        "precision": 0.946113074204947,
+        "recall": 0.9240724762726489,
+        "f1-score": 0.9349628982976866,
+        "support": 1159.0
+      },
+      "joy": {
+        "precision": 0.935361216730038,
+        "recall": 0.9097633136094675,
+        "f1-score": 0.922384701912261,
+        "support": 1352.0
+      },
+      "love": {
+        "precision": 0.7467362924281984,
+        "recall": 0.8719512195121951,
+        "f1-score": 0.8045007032348804,
+        "support": 328.0
+      },
+      "anger": {
+        "precision": 0.8874296435272045,
+        "recall": 0.8726937269372693,
+        "f1-score": 0.88,
+        "support": 542.0
+      },
+      "fear": {
+        "precision": 0.8736616702355461,
+        "recall": 0.8589473684210527,
+        "f1-score": 0.8662420382165605,
+        "support": 475.0
+      },
+      "surprise": {
+        "precision": 0.7058823529411765,
+        "recall": 0.8333333333333334,
+        "f1-score": 0.7643312101910829,
+        "support": 144.0
+      },
+      "accuracy": 0.897,
+      "macro avg": {
+        "precision": 0.8491973750111851,
+        "recall": 0.8784602396809945,
+        "f1-score": 0.8620702586420785,
+        "support": 4000.0
+      },
+      "weighted avg": {
+        "precision": 0.9009265352290381,
+        "recall": 0.897,
+        "f1-score": 0.8982627522984546,
+        "support": 4000.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        1071,
+        17,
+        11,
+        35,
+        17,
+        8
+      ],
+      [
+        18,
+        1230,
+        74,
+        9,
+        8,
+        13
+      ],
+      [
+        2,
+        37,
+        286,
+        1,
+        2,
+        0
+      ],
+      [
+        25,
+        20,
+        7,
+        473,
+        17,
+        0
+      ],
+      [
+        14,
+        5,
+        5,
+        14,
+        408,
+        29
+      ],
+      [
+        2,
+        6,
+        0,
+        1,
+        15,
+        120
+      ]
+    ],
+    "accuracy": 0.897,
+    "precision": 0.9009265352290381,
+    "recall": 0.897,
+    "f1": 0.8982627522984546
+  },
+  {
+    "model_id": "count_bigram__svm",
+    "display_name": "Count Bigram + SVM",
+    "feature_method": "Count Bigram",
+    "classifier": "SVM",
+    "model_path": "models\\classical\\count_bigram__svm.joblib",
+    "ngram_range": "(1, 2)",
+    "classification_report": {
+      "sadness": {
+        "precision": 0.9356223175965666,
+        "recall": 0.9404659188955996,
+        "f1-score": 0.9380378657487092,
+        "support": 1159.0
+      },
+      "joy": {
+        "precision": 0.9079229122055674,
+        "recall": 0.9408284023668639,
+        "f1-score": 0.9240828187431892,
+        "support": 1352.0
+      },
+      "love": {
+        "precision": 0.803076923076923,
+        "recall": 0.7957317073170732,
+        "f1-score": 0.7993874425727412,
+        "support": 328.0
+      },
+      "anger": {
+        "precision": 0.912621359223301,
+        "recall": 0.8671586715867159,
+        "f1-score": 0.8893093661305582,
+        "support": 542.0
+      },
+      "fear": {
+        "precision": 0.8717948717948718,
+        "recall": 0.8589473684210527,
+        "f1-score": 0.865323435843054,
+        "support": 475.0
+      },
+      "surprise": {
+        "precision": 0.7777777777777778,
+        "recall": 0.6805555555555556,
+        "f1-score": 0.725925925925926,
+        "support": 144.0
+      },
+      "accuracy": 0.89975,
+      "macro avg": {
+        "precision": 0.8681360269458346,
+        "recall": 0.8472812706904768,
+        "f1-score": 0.8570111424940295,
+        "support": 4000.0
+      },
+      "weighted avg": {
+        "precision": 0.899012653741793,
+        "recall": 0.89975,
+        "f1-score": 0.899078145077238,
+        "support": 4000.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        1090,
+        21,
+        5,
+        24,
+        15,
+        4
+      ],
+      [
+        16,
+        1272,
+        50,
+        4,
+        6,
+        4
+      ],
+      [
+        4,
+        61,
+        261,
+        1,
+        1,
+        0
+      ],
+      [
+        28,
+        25,
+        5,
+        470,
+        14,
+        0
+      ],
+      [
+        22,
+        7,
+        4,
+        14,
+        408,
+        20
+      ],
+      [
+        5,
+        15,
+        0,
+        2,
+        24,
+        98
+      ]
+    ],
+    "accuracy": 0.89975,
+    "precision": 0.899012653741793,
+    "recall": 0.89975,
+    "f1": 0.899078145077238
+  },
+  {
+    "model_id": "count_bigram__random_forest",
+    "display_name": "Count Bigram + Random Forest",
+    "feature_method": "Count Bigram",
+    "classifier": "Random Forest",
+    "model_path": "models\\classical\\count_bigram__random_forest.joblib",
+    "ngram_range": "(1, 2)",
+    "classification_report": {
+      "sadness": {
+        "precision": 0.9660056657223796,
+        "recall": 0.8826574633304572,
+        "f1-score": 0.9224526600541028,
+        "support": 1159.0
+      },
+      "joy": {
+        "precision": 0.9457973291437549,
+        "recall": 0.8905325443786982,
+        "f1-score": 0.9173333333333333,
+        "support": 1352.0
+      },
+      "love": {
+        "precision": 0.7206572769953051,
+        "recall": 0.9359756097560976,
+        "f1-score": 0.8143236074270557,
+        "support": 328.0
+      },
+      "anger": {
+        "precision": 0.8691756272401434,
+        "recall": 0.8948339483394834,
+        "f1-score": 0.8818181818181818,
+        "support": 542.0
+      },
+      "fear": {
+        "precision": 0.8329979879275654,
+        "recall": 0.871578947368421,
+        "f1-score": 0.8518518518518519,
+        "support": 475.0
+      },
+      "surprise": {
+        "precision": 0.6577540106951871,
+        "recall": 0.8541666666666666,
+        "f1-score": 0.743202416918429,
+        "support": 144.0
+      },
+      "accuracy": 0.889,
+      "macro avg": {
+        "precision": 0.8320646496207225,
+        "recall": 0.8882908633066374,
+        "f1-score": 0.8551636752338257,
+        "support": 4000.0
+      },
+      "weighted avg": {
+        "precision": 0.8990444885497283,
+        "recall": 0.889,
+        "f1-score": 0.8915129187791959,
+        "support": 4000.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        1023,
+        30,
+        19,
+        46,
+        31,
+        10
+      ],
+      [
+        13,
+        1204,
+        90,
+        10,
+        15,
+        20
+      ],
+      [
+        0,
+        16,
+        307,
+        1,
+        3,
+        1
+      ],
+      [
+        14,
+        21,
+        6,
+        485,
+        16,
+        0
+      ],
+      [
+        8,
+        1,
+        4,
+        15,
+        414,
+        33
+      ],
+      [
+        1,
+        1,
+        0,
+        1,
+        18,
+        123
+      ]
+    ],
+    "accuracy": 0.889,
+    "precision": 0.8990444885497283,
+    "recall": 0.889,
+    "f1": 0.8915129187791959
+  },
+  {
+    "model_id": "tfidf_unigram__naive_bayes",
+    "display_name": "TF-IDF Unigram + Naive Bayes",
+    "feature_method": "TF-IDF Unigram",
+    "classifier": "Naive Bayes",
+    "model_path": "models\\classical\\tfidf_unigram__naive_bayes.joblib",
+    "ngram_range": "(1, 1)",
+    "classification_report": {
+      "sadness": {
+        "precision": 0.692604501607717,
+        "recall": 0.9292493528904228,
+        "f1-score": 0.793662490788504,
+        "support": 1159.0
+      },
+      "joy": {
+        "precision": 0.6448461162677088,
+        "recall": 0.9763313609467456,
+        "f1-score": 0.7766990291262136,
+        "support": 1352.0
+      },
+      "love": {
+        "precision": 0.9583333333333334,
+        "recall": 0.0701219512195122,
+        "f1-score": 0.13068181818181818,
+        "support": 328.0
+      },
+      "anger": {
+        "precision": 0.9078341013824884,
+        "recall": 0.3634686346863469,
+        "f1-score": 0.5191040843214756,
+        "support": 542.0
+      },
+      "fear": {
+        "precision": 0.910828025477707,
+        "recall": 0.30105263157894735,
+        "f1-score": 0.4525316455696203,
+        "support": 475.0
+      },
+      "surprise": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 144.0
+      },
+      "accuracy": 0.69,
+      "macro avg": {
+        "precision": 0.6857410130114925,
+        "recall": 0.44003732188699574,
+        "f1-score": 0.445446511331272,
+        "support": 4000.0
+      },
+      "weighted avg": {
+        "precision": 0.7283958237354597,
+        "recall": 0.69,
+        "f1-score": 0.6272806239784907,
+        "support": 4000.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        1077,
+        78,
+        0,
+        3,
+        1,
+        0
+      ],
+      [
+        29,
+        1320,
+        0,
+        3,
+        0,
+        0
+      ],
+      [
+        43,
+        261,
+        23,
+        0,
+        1,
+        0
+      ],
+      [
+        184,
+        156,
+        1,
+        197,
+        4,
+        0
+      ],
+      [
+        169,
+        150,
+        0,
+        13,
+        143,
+        0
+      ],
+      [
+        53,
+        82,
+        0,
+        1,
+        8,
+        0
+      ]
+    ],
+    "accuracy": 0.69,
+    "precision": 0.7283958237354597,
+    "recall": 0.69,
+    "f1": 0.6272806239784907
+  },
+  {
+    "model_id": "tfidf_unigram__logistic_regression",
+    "display_name": "TF-IDF Unigram + Logistic Regression",
+    "feature_method": "TF-IDF Unigram",
+    "classifier": "Logistic Regression",
+    "model_path": "models\\classical\\tfidf_unigram__logistic_regression.joblib",
+    "ngram_range": "(1, 1)",
+    "classification_report": {
+      "sadness": {
+        "precision": 0.9471285323609845,
+        "recall": 0.8964624676445211,
+        "f1-score": 0.9210992907801419,
+        "support": 1159.0
+      },
+      "joy": {
+        "precision": 0.9459888800635425,
+        "recall": 0.8809171597633136,
+        "f1-score": 0.9122941401761777,
+        "support": 1352.0
+      },
+      "love": {
+        "precision": 0.7105882352941176,
+        "recall": 0.9207317073170732,
+        "f1-score": 0.8021248339973439,
+        "support": 328.0
+      },
+      "anger": {
+        "precision": 0.855098389982111,
+        "recall": 0.8819188191881919,
+        "f1-score": 0.8683015440508629,
+        "support": 542.0
+      },
+      "fear": {
+        "precision": 0.8482905982905983,
+        "recall": 0.8357894736842105,
+        "f1-score": 0.8419936373276776,
+        "support": 475.0
+      },
+      "surprise": {
+        "precision": 0.6666666666666666,
+        "recall": 0.8888888888888888,
+        "f1-score": 0.7619047619047619,
+        "support": 144.0
+      },
+      "accuracy": 0.88375,
+      "macro avg": {
+        "precision": 0.8289602171096702,
+        "recall": 0.8841180860810333,
+        "f1-score": 0.8512863680394943,
+        "support": 4000.0
+      },
+      "weighted avg": {
+        "precision": 0.8930433093967747,
+        "recall": 0.88375,
+        "f1-score": 0.8860883503510014,
+        "support": 4000.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        1039,
+        29,
+        14,
+        42,
+        25,
+        10
+      ],
+      [
+        23,
+        1191,
+        90,
+        18,
+        15,
+        15
+      ],
+      [
+        0,
+        17,
+        302,
+        4,
+        3,
+        2
+      ],
+      [
+        22,
+        14,
+        11,
+        478,
+        16,
+        1
+      ],
+      [
+        12,
+        7,
+        7,
+        16,
+        397,
+        36
+      ],
+      [
+        1,
+        1,
+        1,
+        1,
+        12,
+        128
+      ]
+    ],
+    "accuracy": 0.88375,
+    "precision": 0.8930433093967747,
+    "recall": 0.88375,
+    "f1": 0.8860883503510014
+  },
+  {
+    "model_id": "tfidf_unigram__svm",
+    "display_name": "TF-IDF Unigram + SVM",
+    "feature_method": "TF-IDF Unigram",
+    "classifier": "SVM",
+    "model_path": "models\\classical\\tfidf_unigram__svm.joblib",
+    "ngram_range": "(1, 1)",
+    "classification_report": {
+      "sadness": {
+        "precision": 0.9245929734361611,
+        "recall": 0.9309749784296808,
+        "f1-score": 0.9277730008598453,
+        "support": 1159.0
+      },
+      "joy": {
+        "precision": 0.9140568099053168,
+        "recall": 0.9282544378698225,
+        "f1-score": 0.9211009174311927,
+        "support": 1352.0
+      },
+      "love": {
+        "precision": 0.8053097345132744,
+        "recall": 0.8323170731707317,
+        "f1-score": 0.8185907046476761,
+        "support": 328.0
+      },
+      "anger": {
+        "precision": 0.8811320754716981,
+        "recall": 0.8616236162361623,
+        "f1-score": 0.871268656716418,
+        "support": 542.0
+      },
+      "fear": {
+        "precision": 0.8679653679653679,
+        "recall": 0.8442105263157895,
+        "f1-score": 0.855923159018143,
+        "support": 475.0
+      },
+      "surprise": {
+        "precision": 0.7751937984496124,
+        "recall": 0.6944444444444444,
+        "f1-score": 0.7326007326007326,
+        "support": 144.0
+      },
+      "accuracy": 0.89375,
+      "macro avg": {
+        "precision": 0.8613751266235719,
+        "recall": 0.8486375127444385,
+        "f1-score": 0.8545428618790013,
+        "support": 4000.0
+      },
+      "weighted avg": {
+        "precision": 0.8932586744477019,
+        "recall": 0.89375,
+        "f1-score": 0.8933501793640982,
+        "support": 4000.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        1079,
+        29,
+        4,
+        26,
+        16,
+        5
+      ],
+      [
+        19,
+        1255,
+        52,
+        11,
+        9,
+        6
+      ],
+      [
+        2,
+        46,
+        273,
+        5,
+        2,
+        0
+      ],
+      [
+        36,
+        22,
+        5,
+        467,
+        12,
+        0
+      ],
+      [
+        24,
+        7,
+        5,
+        20,
+        401,
+        18
+      ],
+      [
+        7,
+        14,
+        0,
+        1,
+        22,
+        100
+      ]
+    ],
+    "accuracy": 0.89375,
+    "precision": 0.8932586744477019,
+    "recall": 0.89375,
+    "f1": 0.8933501793640982
+  },
+  {
+    "model_id": "tfidf_unigram__random_forest",
+    "display_name": "TF-IDF Unigram + Random Forest",
+    "feature_method": "TF-IDF Unigram",
+    "classifier": "Random Forest",
+    "model_path": "models\\classical\\tfidf_unigram__random_forest.joblib",
+    "ngram_range": "(1, 1)",
+    "classification_report": {
+      "sadness": {
+        "precision": 0.9682080924855492,
+        "recall": 0.8671268334771355,
+        "f1-score": 0.9148839326354119,
+        "support": 1159.0
+      },
+      "joy": {
+        "precision": 0.9380952380952381,
+        "recall": 0.8742603550295858,
+        "f1-score": 0.9050535987748851,
+        "support": 1352.0
+      },
+      "love": {
+        "precision": 0.6938775510204082,
+        "recall": 0.9329268292682927,
+        "f1-score": 0.7958387516254877,
+        "support": 328.0
+      },
+      "anger": {
+        "precision": 0.8556338028169014,
+        "recall": 0.8966789667896679,
+        "f1-score": 0.8756756756756757,
+        "support": 542.0
+      },
+      "fear": {
+        "precision": 0.8215686274509804,
+        "recall": 0.8821052631578947,
+        "f1-score": 0.8507614213197969,
+        "support": 475.0
+      },
+      "surprise": {
+        "precision": 0.6721311475409836,
+        "recall": 0.8541666666666666,
+        "f1-score": 0.7522935779816514,
+        "support": 144.0
+      },
+      "accuracy": 0.88025,
+      "macro avg": {
+        "precision": 0.8249190765683435,
+        "recall": 0.8845441523982074,
+        "f1-score": 0.8490844930021515,
+        "support": 4000.0
+      },
+      "weighted avg": {
+        "precision": 0.8922088205605212,
+        "recall": 0.88025,
+        "f1-score": 0.8830190551434313,
+        "support": 4000.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        1005,
+        37,
+        19,
+        53,
+        35,
+        10
+      ],
+      [
+        17,
+        1182,
+        104,
+        14,
+        16,
+        19
+      ],
+      [
+        0,
+        15,
+        306,
+        2,
+        3,
+        2
+      ],
+      [
+        7,
+        24,
+        6,
+        486,
+        18,
+        1
+      ],
+      [
+        8,
+        1,
+        6,
+        13,
+        419,
+        28
+      ],
+      [
+        1,
+        1,
+        0,
+        0,
+        19,
+        123
+      ]
+    ],
+    "accuracy": 0.88025,
+    "precision": 0.8922088205605212,
+    "recall": 0.88025,
+    "f1": 0.8830190551434313
+  },
+  {
+    "model_id": "tfidf_bigram__naive_bayes",
+    "display_name": "TF-IDF Bigram + Naive Bayes",
+    "feature_method": "TF-IDF Bigram",
+    "classifier": "Naive Bayes",
+    "model_path": "models\\classical\\tfidf_bigram__naive_bayes.joblib",
+    "ngram_range": "(1, 2)",
+    "classification_report": {
+      "sadness": {
+        "precision": 0.6982758620689655,
+        "recall": 0.908541846419327,
+        "f1-score": 0.7896512935883014,
+        "support": 1159.0
+      },
+      "joy": {
+        "precision": 0.6117755289788408,
+        "recall": 0.9837278106508875,
+        "f1-score": 0.7543959160521838,
+        "support": 1352.0
+      },
+      "love": {
+        "precision": 1.0,
+        "recall": 0.042682926829268296,
+        "f1-score": 0.08187134502923976,
+        "support": 328.0
+      },
+      "anger": {
+        "precision": 0.9559748427672956,
+        "recall": 0.28044280442804426,
+        "f1-score": 0.43366619115549215,
+        "support": 542.0
+      },
+      "fear": {
+        "precision": 0.9370629370629371,
+        "recall": 0.28210526315789475,
+        "f1-score": 0.4336569579288026,
+        "support": 475.0
+      },
+      "surprise": {
+        "precision": 1.0,
+        "recall": 0.013888888888888888,
+        "f1-score": 0.0273972602739726,
+        "support": 144.0
+      },
+      "accuracy": 0.67125,
+      "macro avg": {
+        "precision": 0.8671815284796732,
+        "recall": 0.41856492339571844,
+        "f1-score": 0.42010649400466543,
+        "support": 4000.0
+      },
+      "weighted avg": {
+        "precision": 0.7679163748005233,
+        "recall": 0.67125,
+        "f1-score": 0.6017455662607236,
+        "support": 4000.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        1053,
+        105,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        22,
+        1330,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        42,
+        272,
+        14,
+        0,
+        0,
+        0
+      ],
+      [
+        177,
+        209,
+        0,
+        152,
+        4,
+        0
+      ],
+      [
+        164,
+        171,
+        0,
+        6,
+        134,
+        0
+      ],
+      [
+        50,
+        87,
+        0,
+        0,
+        5,
+        2
+      ]
+    ],
+    "accuracy": 0.67125,
+    "precision": 0.7679163748005233,
+    "recall": 0.67125,
+    "f1": 0.6017455662607236
+  },
+  {
+    "model_id": "tfidf_bigram__logistic_regression",
+    "display_name": "TF-IDF Bigram + Logistic Regression",
+    "feature_method": "TF-IDF Bigram",
+    "classifier": "Logistic Regression",
+    "model_path": "models\\classical\\tfidf_bigram__logistic_regression.joblib",
+    "ngram_range": "(1, 2)",
+    "classification_report": {
+      "sadness": {
+        "precision": 0.94579945799458,
+        "recall": 0.903364969801553,
+        "f1-score": 0.9240953221535746,
+        "support": 1159.0
+      },
+      "joy": {
+        "precision": 0.9402985074626866,
+        "recall": 0.8853550295857988,
+        "f1-score": 0.912,
+        "support": 1352.0
+      },
+      "love": {
+        "precision": 0.7240566037735849,
+        "recall": 0.9359756097560976,
+        "f1-score": 0.8164893617021277,
+        "support": 328.0
+      },
+      "anger": {
+        "precision": 0.864963503649635,
+        "recall": 0.8745387453874539,
+        "f1-score": 0.8697247706422019,
+        "support": 542.0
+      },
+      "fear": {
+        "precision": 0.8766519823788547,
+        "recall": 0.8378947368421052,
+        "f1-score": 0.8568353067814855,
+        "support": 475.0
+      },
+      "surprise": {
+        "precision": 0.6855670103092784,
+        "recall": 0.9236111111111112,
+        "f1-score": 0.7869822485207101,
+        "support": 144.0
+      },
+      "accuracy": 0.889,
+      "macro avg": {
+        "precision": 0.83955617759477,
+        "recall": 0.89345670041402,
+        "f1-score": 0.8610211683000166,
+        "support": 4000.0
+      },
+      "weighted avg": {
+        "precision": 0.8972243200089,
+        "recall": 0.889,
+        "f1-score": 0.8908930073026381,
+        "support": 4000.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        1047,
+        31,
+        12,
+        41,
+        18,
+        10
+      ],
+      [
+        24,
+        1197,
+        91,
+        15,
+        9,
+        16
+      ],
+      [
+        1,
+        15,
+        307,
+        2,
+        3,
+        0
+      ],
+      [
+        22,
+        17,
+        10,
+        474,
+        19,
+        0
+      ],
+      [
+        13,
+        11,
+        3,
+        15,
+        398,
+        35
+      ],
+      [
+        0,
+        2,
+        1,
+        1,
+        7,
+        133
+      ]
+    ],
+    "accuracy": 0.889,
+    "precision": 0.8972243200089,
+    "recall": 0.889,
+    "f1": 0.8908930073026381
+  },
+  {
+    "model_id": "tfidf_bigram__svm",
+    "display_name": "TF-IDF Bigram + SVM",
+    "feature_method": "TF-IDF Bigram",
+    "classifier": "SVM",
+    "model_path": "models\\classical\\tfidf_bigram__svm.joblib",
+    "ngram_range": "(1, 2)",
+    "classification_report": {
+      "sadness": {
+        "precision": 0.9301533219761499,
+        "recall": 0.9421915444348576,
+        "f1-score": 0.9361337333904843,
+        "support": 1159.0
+      },
+      "joy": {
+        "precision": 0.9209370424597365,
+        "recall": 0.9304733727810651,
+        "f1-score": 0.9256806475349522,
+        "support": 1352.0
+      },
+      "love": {
+        "precision": 0.8029411764705883,
+        "recall": 0.8323170731707317,
+        "f1-score": 0.8173652694610778,
+        "support": 328.0
+      },
+      "anger": {
+        "precision": 0.9080459770114943,
+        "recall": 0.8745387453874539,
+        "f1-score": 0.8909774436090225,
+        "support": 542.0
+      },
+      "fear": {
+        "precision": 0.871244635193133,
+        "recall": 0.8547368421052631,
+        "f1-score": 0.8629117959617428,
+        "support": 475.0
+      },
+      "surprise": {
+        "precision": 0.7954545454545454,
+        "recall": 0.7291666666666666,
+        "f1-score": 0.7608695652173914,
+        "support": 144.0
+      },
+      "accuracy": 0.902,
+      "macro avg": {
+        "precision": 0.8714627830942746,
+        "recall": 0.8605707074243397,
+        "f1-score": 0.8656564091957786,
+        "support": 4000.0
+      },
+      "weighted avg": {
+        "precision": 0.9017667158151743,
+        "recall": 0.902,
+        "f1-score": 0.9017382839398206,
+        "support": 4000.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        1092,
+        22,
+        5,
+        24,
+        14,
+        2
+      ],
+      [
+        20,
+        1258,
+        55,
+        5,
+        6,
+        8
+      ],
+      [
+        2,
+        50,
+        273,
+        1,
+        2,
+        0
+      ],
+      [
+        30,
+        20,
+        4,
+        474,
+        14,
+        0
+      ],
+      [
+        25,
+        7,
+        3,
+        17,
+        406,
+        17
+      ],
+      [
+        5,
+        9,
+        0,
+        1,
+        24,
+        105
+      ]
+    ],
+    "accuracy": 0.902,
+    "precision": 0.9017667158151743,
+    "recall": 0.902,
+    "f1": 0.9017382839398206
+  },
+  {
+    "model_id": "tfidf_bigram__random_forest",
+    "display_name": "TF-IDF Bigram + Random Forest",
+    "feature_method": "TF-IDF Bigram",
+    "classifier": "Random Forest",
+    "model_path": "models\\classical\\tfidf_bigram__random_forest.joblib",
+    "ngram_range": "(1, 2)",
+    "classification_report": {
+      "sadness": {
+        "precision": 0.9628217349857007,
+        "recall": 0.8714408973252804,
+        "f1-score": 0.9148550724637681,
+        "support": 1159.0
+      },
+      "joy": {
+        "precision": 0.9303599374021909,
+        "recall": 0.8794378698224852,
+        "f1-score": 0.9041825095057034,
+        "support": 1352.0
+      },
+      "love": {
+        "precision": 0.7057471264367816,
+        "recall": 0.9359756097560976,
+        "f1-score": 0.8047182175622543,
+        "support": 328.0
+      },
+      "anger": {
+        "precision": 0.8628158844765343,
+        "recall": 0.8819188191881919,
+        "f1-score": 0.8722627737226277,
+        "support": 542.0
+      },
+      "fear": {
+        "precision": 0.8353174603174603,
+        "recall": 0.8863157894736842,
+        "f1-score": 0.8600612870275791,
+        "support": 475.0
+      },
+      "surprise": {
+        "precision": 0.7,
+        "recall": 0.875,
+        "f1-score": 0.7777777777777778,
+        "support": 144.0
+      },
+      "accuracy": 0.88275,
+      "macro avg": {
+        "precision": 0.8328436906031113,
+        "recall": 0.8883481642609565,
+        "f1-score": 0.8556429396766184,
+        "support": 4000.0
+      },
+      "weighted avg": {
+        "precision": 0.8926160216811322,
+        "recall": 0.88275,
+        "f1-score": 0.8850037229733505,
+        "support": 4000.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        1010,
+        42,
+        16,
+        50,
+        30,
+        11
+      ],
+      [
+        18,
+        1189,
+        100,
+        11,
+        16,
+        18
+      ],
+      [
+        0,
+        17,
+        307,
+        1,
+        3,
+        0
+      ],
+      [
+        13,
+        24,
+        7,
+        478,
+        20,
+        0
+      ],
+      [
+        8,
+        3,
+        5,
+        13,
+        421,
+        25
+      ],
+      [
+        0,
+        3,
+        0,
+        1,
+        14,
+        126
+      ]
+    ],
+    "accuracy": 0.88275,
+    "precision": 0.8926160216811322,
+    "recall": 0.88275,
+    "f1": 0.8850037229733505
+  },
+  {
+    "model_id": "word2vec__logistic_regression",
+    "display_name": "Word2Vec + Logistic Regression",
+    "feature_method": "Word2Vec",
+    "classifier": "Logistic Regression",
+    "model_path": "models\\classical\\word2vec__logistic_regression.joblib",
+    "ngram_range": "not applicable",
+    "classification_report": {
+      "sadness": {
+        "precision": 0.6359945872801083,
+        "recall": 0.4055220017256255,
+        "f1-score": 0.4952581664910432,
+        "support": 1159.0
+      },
+      "joy": {
+        "precision": 0.7053045186640472,
+        "recall": 0.5310650887573964,
+        "f1-score": 0.6059071729957806,
+        "support": 1352.0
+      },
+      "love": {
+        "precision": 0.2461799660441426,
+        "recall": 0.4420731707317073,
+        "f1-score": 0.31624863685932386,
+        "support": 328.0
+      },
+      "anger": {
+        "precision": 0.33121019108280253,
+        "recall": 0.3837638376383764,
+        "f1-score": 0.35555555555555557,
+        "support": 542.0
+      },
+      "fear": {
+        "precision": 0.32040816326530613,
+        "recall": 0.33052631578947367,
+        "f1-score": 0.32538860103626943,
+        "support": 475.0
+      },
+      "surprise": {
+        "precision": 0.12313432835820895,
+        "recall": 0.4583333333333333,
+        "f1-score": 0.19411764705882353,
+        "support": 144.0
+      },
+      "accuracy": 0.441,
+      "macro avg": {
+        "precision": 0.39370529244910263,
+        "recall": 0.4252139579959855,
+        "f1-score": 0.3820792966661328,
+        "support": 4000.0
+      },
+      "weighted avg": {
+        "precision": 0.5302194022888495,
+        "recall": 0.441,
+        "f1-score": 0.4680359758807706,
+        "support": 4000.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        470,
+        124,
+        93,
+        192,
+        140,
+        140
+      ],
+      [
+        95,
+        718,
+        241,
+        88,
+        82,
+        128
+      ],
+      [
+        10,
+        74,
+        145,
+        46,
+        18,
+        35
+      ],
+      [
+        94,
+        45,
+        60,
+        208,
+        65,
+        70
+      ],
+      [
+        60,
+        40,
+        36,
+        85,
+        157,
+        97
+      ],
+      [
+        10,
+        17,
+        14,
+        9,
+        28,
+        66
+      ]
+    ],
+    "accuracy": 0.441,
+    "precision": 0.5302194022888495,
+    "recall": 0.441,
+    "f1": 0.4680359758807706
+  },
+  {
+    "model_id": "word2vec__svm",
+    "display_name": "Word2Vec + SVM",
+    "feature_method": "Word2Vec",
+    "classifier": "SVM",
+    "model_path": "models\\classical\\word2vec__svm.joblib",
+    "ngram_range": "not applicable",
+    "classification_report": {
+      "sadness": {
+        "precision": 0.4896161107614852,
+        "recall": 0.6712683347713546,
+        "f1-score": 0.5662299854439592,
+        "support": 1159.0
+      },
+      "joy": {
+        "precision": 0.5759625390218522,
+        "recall": 0.8187869822485208,
+        "f1-score": 0.67623701893708,
+        "support": 1352.0
+      },
+      "love": {
+        "precision": 0.4444444444444444,
+        "recall": 0.08536585365853659,
+        "f1-score": 0.1432225063938619,
+        "support": 328.0
+      },
+      "anger": {
+        "precision": 0.4074074074074074,
+        "recall": 0.16236162361623616,
+        "f1-score": 0.23218997361477572,
+        "support": 542.0
+      },
+      "fear": {
+        "precision": 0.5153061224489796,
+        "recall": 0.21263157894736842,
+        "f1-score": 0.30104321907600595,
+        "support": 475.0
+      },
+      "surprise": {
+        "precision": 0.35714285714285715,
+        "recall": 0.034722222222222224,
+        "f1-score": 0.06329113924050633,
+        "support": 144.0
+      },
+      "accuracy": 0.52675,
+      "macro avg": {
+        "precision": 0.4649799135378377,
+        "recall": 0.33085609924403986,
+        "f1-score": 0.33036897378436486,
+        "support": 4000.0
+      },
+      "weighted avg": {
+        "precision": 0.5022394993286338,
+        "recall": 0.52675,
+        "f1-score": 0.4738666009101529,
+        "support": 4000.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        778,
+        292,
+        6,
+        43,
+        38,
+        2
+      ],
+      [
+        192,
+        1107,
+        17,
+        21,
+        12,
+        3
+      ],
+      [
+        66,
+        204,
+        28,
+        22,
+        8,
+        0
+      ],
+      [
+        283,
+        143,
+        7,
+        88,
+        19,
+        2
+      ],
+      [
+        216,
+        114,
+        3,
+        39,
+        101,
+        2
+      ],
+      [
+        54,
+        62,
+        2,
+        3,
+        18,
+        5
+      ]
+    ],
+    "accuracy": 0.52675,
+    "precision": 0.5022394993286338,
+    "recall": 0.52675,
+    "f1": 0.4738666009101529
+  },
+  {
+    "model_id": "word2vec__random_forest",
+    "display_name": "Word2Vec + Random Forest",
+    "feature_method": "Word2Vec",
+    "classifier": "Random Forest",
+    "model_path": "models\\classical\\word2vec__random_forest.joblib",
+    "ngram_range": "not applicable",
+    "classification_report": {
+      "sadness": {
+        "precision": 0.4608391608391608,
+        "recall": 0.5685936151855048,
+        "f1-score": 0.5090768636539205,
+        "support": 1159.0
+      },
+      "joy": {
+        "precision": 0.5672902836451418,
+        "recall": 0.6952662721893491,
+        "f1-score": 0.6247922897972749,
+        "support": 1352.0
+      },
+      "love": {
+        "precision": 0.34375,
+        "recall": 0.1676829268292683,
+        "f1-score": 0.22540983606557377,
+        "support": 328.0
+      },
+      "anger": {
+        "precision": 0.3385012919896641,
+        "recall": 0.24169741697416974,
+        "f1-score": 0.28202368137782563,
+        "support": 542.0
+      },
+      "fear": {
+        "precision": 0.32285714285714284,
+        "recall": 0.23789473684210527,
+        "f1-score": 0.2739393939393939,
+        "support": 475.0
+      },
+      "surprise": {
+        "precision": 0.3125,
+        "recall": 0.034722222222222224,
+        "f1-score": 0.0625,
+        "support": 144.0
+      },
+      "accuracy": 0.47575,
+      "macro avg": {
+        "precision": 0.3909563132218516,
+        "recall": 0.32430953170710325,
+        "f1-score": 0.32962367747233146,
+        "support": 4000.0
+      },
+      "weighted avg": {
+        "precision": 0.44891597350409,
+        "recall": 0.47575,
+        "f1-score": 0.4501629336095779,
+        "support": 4000.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        659,
+        279,
+        30,
+        95,
+        93,
+        3
+      ],
+      [
+        242,
+        940,
+        52,
+        61,
+        55,
+        2
+      ],
+      [
+        69,
+        163,
+        55,
+        24,
+        16,
+        1
+      ],
+      [
+        239,
+        107,
+        14,
+        131,
+        50,
+        1
+      ],
+      [
+        174,
+        113,
+        9,
+        62,
+        113,
+        4
+      ],
+      [
+        47,
+        55,
+        0,
+        14,
+        23,
+        5
+      ]
+    ],
+    "accuracy": 0.47575,
+    "precision": 0.44891597350409,
+    "recall": 0.47575,
+    "f1": 0.4501629336095779
+  },
+  {
+    "model_id": "distilbert",
+    "display_name": "DistilBERT",
+    "feature_method": "Transformer",
+    "classifier": "DistilBERT",
+    "accuracy": 0.9565,
+    "precision": 0.9567428696142654,
+    "recall": 0.9565,
+    "f1": 0.9564976753278538,
+    "classification_report": {
+      "sadness": {
+        "precision": 0.9752770673486786,
+        "recall": 0.9870578084555651,
+        "f1-score": 0.9811320754716981,
+        "support": 1159.0
+      },
+      "joy": {
+        "precision": 0.9759579263711495,
+        "recall": 0.9607988165680473,
+        "f1-score": 0.9683190458442043,
+        "support": 1352.0
+      },
+      "love": {
+        "precision": 0.8789625360230547,
+        "recall": 0.9298780487804879,
+        "f1-score": 0.9037037037037037,
+        "support": 328.0
+      },
+      "anger": {
+        "precision": 0.9543795620437956,
+        "recall": 0.9649446494464945,
+        "f1-score": 0.9596330275229358,
+        "support": 542.0
+      },
+      "fear": {
+        "precision": 0.9415584415584416,
+        "recall": 0.9157894736842105,
+        "f1-score": 0.928495197438634,
+        "support": 475.0
+      },
+      "surprise": {
+        "precision": 0.8633093525179856,
+        "recall": 0.8333333333333334,
+        "f1-score": 0.8480565371024735,
+        "support": 144.0
+      },
+      "accuracy": 0.9565,
+      "macro avg": {
+        "precision": 0.9315741476438509,
+        "recall": 0.9319670217113564,
+        "f1-score": 0.9315565978472748,
+        "support": 4000.0
+      },
+      "weighted avg": {
+        "precision": 0.9567428696142654,
+        "recall": 0.9565,
+        "f1-score": 0.9564976753278538,
+        "support": 4000.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        1144,
+        2,
+        1,
+        8,
+        4,
+        0
+      ],
+      [
+        4,
+        1299,
+        41,
+        3,
+        2,
+        3
+      ],
+      [
+        0,
+        23,
+        305,
+        0,
+        0,
+        0
+      ],
+      [
+        15,
+        2,
+        0,
+        523,
+        2,
+        0
+      ],
+      [
+        9,
+        1,
+        0,
+        14,
+        435,
+        16
+      ],
+      [
+        1,
+        4,
+        0,
+        0,
+        19,
+        120
+      ]
+    ]
+  }
+]
