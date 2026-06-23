@@ -1,30 +1,59 @@
-# ── All trained model files ────────────────────────────────────────────────────
-models/classical/*.joblib
-models/classical/*.model
-models/distilbert_emotion/
-notebooks/distilbert_demo/
-
-# ── Python cache ──────────────────────────────────────────────────────────────
+﻿# Python cache and local runtime files
 __pycache__/
 *.py[cod]
-*.pyo
+*$py.class
 .pytest_cache/
+.mypy_cache/
+.ruff_cache/
 
-# ── Streamlit logs ────────────────────────────────────────────────────────────
-streamlit*.log
-streamlit*.err.log
-streamlit*.out.log
+# Virtual environments and local configuration
+.venv/
+venv/
+env/
+.env
+.env.*
+!.env.example
+kaggle.json
 
-# ── OS / editor ───────────────────────────────────────────────────────────────
+# Streamlit and local logs
+.streamlit/secrets.toml
+*.log
+streamlit.log
+streamlit.err.log
+
+# Datasets: keep one small/sample CSV on GitHub, keep raw/bulk data out
+data/raw/
+data/interim/
+data/processed/*.csv
+!data/processed/emotion_clean.csv
+!data/processed/.gitkeep
+data/**/*.parquet
+data/**/*.pkl
+
+# Trained model artifacts: keep only one small demo model on GitHub
+models/**/*.joblib
+!models/classical/tfidf_bigram__svm.joblib
+models/**/*.pkl
+models/**/*.model
+models/**/*.safetensors
+models/**/*.bin
+models/**/*.pt
+models/**/*.pth
+models/**/checkpoint-*/
+
+# Keep small evaluation outputs and folder placeholders
+!models/classical/model_results.csv
+!models/classical/model_results_details.json
+!models/classical/.gitkeep
+!models/distilbert_emotion/.gitkeep
+
+# OS/editor noise
 .DS_Store
 Thumbs.db
 .vscode/
 .idea/
-
-# ── Virtual environments ──────────────────────────────────────────────────────
-.venv/
-venv/
-env/
-
-# ── Jupyter checkpoints ───────────────────────────────────────────────────────
-.ipynb_checkpoints/
+notebooks/**/*.safetensors
+notebooks/**/*.pt
+notebooks/**/*.pth
+notebooks/**/*.bin
+notebooks/**/checkpoint-*/

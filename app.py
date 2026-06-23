@@ -23,7 +23,7 @@ from src.visualization import (
 
 st.set_page_config(page_title="Social Media Emotion Analyzer", page_icon=":bar_chart:", layout="wide")
 
-TEAM_MEMBERS = ["Jimmy", "Team Member 2", "Team Member 3"]
+TEAM_MEMBERS = ["Jimmy", "Arif", "Haziq"]
 
 
 @st.cache_data
@@ -179,7 +179,6 @@ def show_home() -> None:
 
     st.subheader("Team Members")
     st.write(", ".join(TEAM_MEMBERS))
-    st.caption("Replace Team Member 2 and Team Member 3 with your real group members before final submission.")
 
     st.subheader("Problem And Objective")
     st.write(
@@ -218,8 +217,15 @@ def show_text_analyzer() -> None:
     if not model_names:
         st.error("No trained model artifacts are available. Run the training scripts or restore the model files first.")
         return
-    default_name = "TF-IDF Bigram + SVM" if "TF-IDF Bigram + SVM" in model_names else model_names[0]
-    model_name = st.selectbox("Choose a model", model_names, index=model_names.index(default_name))
+    preferred_order = [
+        "DistilBERT",
+        "TF-IDF Bigram + SVM",
+        "Count Bigram + SVM",
+        "Count Bigram + Logistic Regression",
+        "Count Unigram + Logistic Regression",
+    ]
+    ordered_model_names = [name for name in preferred_order if name in model_names] + [name for name in model_names if name not in preferred_order]
+    model_name = st.selectbox("Choose a model", ordered_model_names, index=0)
     st.caption(registry[model_name].description)
 
     text = st.text_area(
@@ -379,7 +385,16 @@ def show_model_info() -> None:
         st.info("Train classical models first to show confusion matrices.")
     else:
         detail_by_name = {item["display_name"]: item for item in details}
-        selected = st.selectbox("Choose model for confusion matrix", list(detail_by_name))
+        model_names = list(detail_by_name)
+        preferred_order = [
+            "DistilBERT",
+            "TF-IDF Bigram + SVM",
+            "Count Bigram + SVM",
+            "Count Bigram + Logistic Regression",
+            "Count Unigram + Logistic Regression",
+        ]
+        ordered_model_names = [name for name in preferred_order if name in model_names] + [name for name in model_names if name not in preferred_order]
+        selected = st.selectbox("Choose model for confusion matrix", ordered_model_names)
         matrix = pd.DataFrame(
             detail_by_name[selected]["confusion_matrix"],
             index=LABEL_NAMES,
