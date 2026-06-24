@@ -5,3 +5,5 @@ streamlit
 plotly
 joblib
 wordcloud
+torch
+transformers
