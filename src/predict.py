@@ -49,6 +49,38 @@ def get_model_registry() -> dict[str, ModelInfo]:
         "tfidf_bigram": "TF-IDF bigram includes phrase features such as 'not happy'.",
         "word2vec": "Word2Vec averages dense word vectors to represent meaning.",
     }
+    classifiers = {
+        "logistic_regression": "Logistic Regression",
+        "svm": "SVM",
+    }
+    
+    registry: dict[str, ModelInfo] = {}
+    
+    selected_combinations = [
+        ("tfidf_bigram", "svm", "TF-IDF Bigram + SVM"),
+        ("count_bigram", "svm", "Count Bigram + SVM"),
+        ("count_bigram", "logistic_regression", "Count Bigram + Logistic Regression"),
+        ("count_unigram", "logistic_regression", "Count Unigram + Logistic Regression"),
+    ]
+    for feature_id, classifier_id, display_name in selected_combinations:
+        model_id = f"{feature_id}__{classifier_id}"
+        registry[display_name] = _classical_model(
+            model_id,
+            display_name,
+            f"{descriptions[feature_id]} Classifier: {classifiers[classifier_id]}.",
+        )
+
+    registry["DistilBERT"] = ModelInfo(
+        model_id="distilbert",
+        display_name="DistilBERT",
+        model_type="transformer",
+        path=PROJECT_ROOT / "models" / "distilbert_emotion",
+        description=(
+            "DistilBERT is the advanced NLP bonus model. It is a transformer "
+            "that reads words in context instead of only counting words."
+        ),
+    )
+    return registry
 
 
 def model_artifact_exists(info: ModelInfo) -> bool:
@@ -119,9 +151,6 @@ def _confidence_for_input(model: Any, model_input: Any, classes: list[str]) -> d
         try:
             return _format_confidence(classes, model.predict_proba(model_input)[0])
         except (AttributeError, TypeError, ValueError):
-            # Older saved LogisticRegression objects can fail here when loaded
-            # with a different scikit-learn version. Decision scores still work
-            # and are enough for the app's confidence chart.
             pass
 
     if hasattr(model, "decision_function"):
@@ -161,14 +190,7 @@ def _fallback_terms(text: str, reason: str, max_terms: int) -> pd.DataFrame:
 
 
 def explain_prediction_terms(model_name: str, text: str, max_terms: int = 10) -> pd.DataFrame:
-    """Show the words or phrases that influenced the selected prediction.
-
-    For CountVectorizer and TF-IDF models, this function extracts the actual
-    unigram/bigram features found in the user's text and ranks them by feature
-    value. For Word2Vec and DistilBERT, explanations are token-level because the
-    model represents meaning through embeddings/context rather than visible word
-    count columns.
-    """
+    """Show the words or phrases that influenced the selected prediction."""
 
     registry = get_model_registry()
     if model_name not in registry:
@@ -219,7 +241,6 @@ def explain_prediction_terms(model_name: str, text: str, max_terms: int = 10) ->
         for term, score in ranked
     ]
     return pd.DataFrame(rows, columns=["term", "score", "why_it_matters"])
-
 
 
 def _resolve_artifact_path(path_value: str) -> Path:
@@ -331,5 +352,3 @@ def predict_emotion(model_name: str, text: str) -> tuple[str, dict[str, float]]:
     if info.model_type == "transformer":
         return _predict_transformer(info, text)
     return _predict_classical(info, text)
-
-
