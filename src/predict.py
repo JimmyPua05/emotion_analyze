@@ -1,4 +1,4 @@
-﻿"""Prediction utilities and model registry for the Streamlit app."""
+"""Prediction utilities and model registry for the Streamlit app."""
 
 from __future__ import annotations
 
@@ -49,51 +49,15 @@ def get_model_registry() -> dict[str, ModelInfo]:
         "tfidf_bigram": "TF-IDF bigram includes phrase features such as 'not happy'.",
         "word2vec": "Word2Vec averages dense word vectors to represent meaning.",
     }
-    classifiers = {
-        "naive_bayes": "Naive Bayes",
-        "logistic_regression": "Logistic Regression",
-        "svm": "SVM",
-        "random_forest": "Random Forest",
-    }
-    features = [
-        ("count_unigram", "Count Unigram"),
-        ("count_bigram", "Count Bigram"),
-        ("tfidf_unigram", "TF-IDF Unigram"),
-        ("tfidf_bigram", "TF-IDF Bigram"),
-        ("word2vec", "Word2Vec"),
-    ]
-
-    registry: dict[str, ModelInfo] = {}
-    for feature_id, feature_name in features:
-        for classifier_id, classifier_name in classifiers.items():
-            if feature_id == "word2vec" and classifier_id == "naive_bayes":
-                continue
-            model_id = f"{feature_id}__{classifier_id}"
-            display_name = f"{feature_name} + {classifier_name}"
-            registry[display_name] = _classical_model(
-                model_id,
-                display_name,
-                f"{descriptions[feature_id]} Classifier: {classifier_name}.",
-            )
-
-    registry["DistilBERT"] = ModelInfo(
-        model_id="distilbert",
-        display_name="DistilBERT",
-        model_type="transformer",
-        path=PROJECT_ROOT / "models" / "distilbert_emotion",
-        description=(
-            "DistilBERT is the advanced NLP bonus model. It is a transformer "
-            "that reads words in context instead of only counting words."
-        ),
-    )
-    return registry
 
 
 def model_artifact_exists(info: ModelInfo) -> bool:
     """Check whether the selected model artifact is available locally."""
 
     if info.model_type == "transformer":
-        return True
+        return (info.path / "config.json").exists() and (
+            (info.path / "model.safetensors").exists() or (info.path / "pytorch_model.bin").exists()
+        )
     if not info.path.exists():
         return False
     if info.model_id.startswith("word2vec"):
@@ -316,30 +280,43 @@ def _predict_classical(info: ModelInfo, text: str) -> tuple[str, dict[str, float
     return prediction, confidence
 
 def _predict_transformer(info: ModelInfo, text: str) -> tuple[str, dict[str, float]]:
-    """Predict emotion using a DistilBERT model downloaded dynamically."""
+    """Predict emotion using the fine-tuned DistilBERT model."""
+
+    if not model_artifact_exists(info):
+        raise FileNotFoundError(f"DistilBERT model folder not found or incomplete: {info.path}")
 
     try:
-        from transformers import pipeline
+        import os
+
+        os.environ.setdefault("USE_TF", "0")
+        os.environ.setdefault("TRANSFORMERS_NO_TF", "1")
+        import torch
+        from transformers import AutoModelForSequenceClassification, AutoTokenizer
     except ImportError as exc:
         raise ImportError(
-            "Install PyTorch and Transformers to use DistilBERT. "
+            "Install PyTorch and Transformers from requirements-transformer.txt. "
             f"Original error: {exc}"
         ) from exc
 
-    import functools
-    @functools.lru_cache(maxsize=1)
-    def _get_hf_pipeline():
-        return pipeline("text-classification", model="bhadresh-savani/distilbert-base-uncased-emotion", top_k=None)
-        
-    classifier = _get_hf_pipeline()
-    
-    results = classifier(text)[0]
-    
+    tokenizer = AutoTokenizer.from_pretrained(info.path)
+    model = AutoModelForSequenceClassification.from_pretrained(info.path)
+    model.eval()
+
+    inputs = tokenizer(text, return_tensors="pt", truncation=True, padding=True)
+    with torch.no_grad():
+        logits = model(**inputs).logits[0]
+        probabilities = torch.softmax(logits, dim=-1).detach().cpu().numpy()
+
+    id_to_label = getattr(model.config, "id2label", {}) or {}
     confidence = {label: 0.0 for label in LABEL_NAMES}
-    for result in results:
-        label = result["label"].lower()
+    for index, score in enumerate(probabilities):
+        label = str(id_to_label.get(index, LABEL_NAMES[index] if index < len(LABEL_NAMES) else f"label_{index}"))
+        label = label.lower()
+        if label.startswith("label_"):
+            label_index = int(label.split("_")[-1])
+            label = LABEL_NAMES[label_index]
         if label in confidence:
-            confidence[label] = float(result["score"])
+            confidence[label] = float(score)
 
     prediction = max(confidence, key=confidence.get)
     return prediction, confidence
