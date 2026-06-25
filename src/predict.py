@@ -93,9 +93,7 @@ def model_artifact_exists(info: ModelInfo) -> bool:
     """Check whether the selected model artifact is available locally."""
 
     if info.model_type == "transformer":
-        return (info.path / "config.json").exists() and (
-            (info.path / "model.safetensors").exists() or (info.path / "pytorch_model.bin").exists()
-        )
+        return True
     if not info.path.exists():
         return False
     if info.model_id.startswith("word2vec"):
@@ -318,43 +316,30 @@ def _predict_classical(info: ModelInfo, text: str) -> tuple[str, dict[str, float
     return prediction, confidence
 
 def _predict_transformer(info: ModelInfo, text: str) -> tuple[str, dict[str, float]]:
-    """Predict emotion using the fine-tuned DistilBERT model."""
-
-    if not model_artifact_exists(info):
-        raise FileNotFoundError(f"DistilBERT model folder not found or incomplete: {info.path}")
+    """Predict emotion using a DistilBERT model downloaded dynamically."""
 
     try:
-        import os
-
-        os.environ.setdefault("USE_TF", "0")
-        os.environ.setdefault("TRANSFORMERS_NO_TF", "1")
-        import torch
-        from transformers import AutoModelForSequenceClassification, AutoTokenizer
+        from transformers import pipeline
     except ImportError as exc:
         raise ImportError(
-            "Install PyTorch and Transformers from requirements-transformer.txt. "
+            "Install PyTorch and Transformers to use DistilBERT. "
             f"Original error: {exc}"
         ) from exc
 
-    tokenizer = AutoTokenizer.from_pretrained(info.path)
-    model = AutoModelForSequenceClassification.from_pretrained(info.path)
-    model.eval()
-
-    inputs = tokenizer(text, return_tensors="pt", truncation=True, padding=True)
-    with torch.no_grad():
-        logits = model(**inputs).logits[0]
-        probabilities = torch.softmax(logits, dim=-1).detach().cpu().numpy()
-
-    id_to_label = getattr(model.config, "id2label", {}) or {}
+    import functools
+    @functools.lru_cache(maxsize=1)
+    def _get_hf_pipeline():
+        return pipeline("text-classification", model="bhadresh-savani/distilbert-base-uncased-emotion", top_k=None)
+        
+    classifier = _get_hf_pipeline()
+    
+    results = classifier(text)[0]
+    
     confidence = {label: 0.0 for label in LABEL_NAMES}
-    for index, score in enumerate(probabilities):
-        label = str(id_to_label.get(index, LABEL_NAMES[index] if index < len(LABEL_NAMES) else f"label_{index}"))
-        label = label.lower()
-        if label.startswith("label_"):
-            label_index = int(label.split("_")[-1])
-            label = LABEL_NAMES[label_index]
+    for result in results:
+        label = result["label"].lower()
         if label in confidence:
-            confidence[label] = float(score)
+            confidence[label] = float(result["score"])
 
     prediction = max(confidence, key=confidence.get)
     return prediction, confidence
