@@ -218,11 +218,11 @@ def show_text_analyzer() -> None:
         st.error("No trained model artifacts are available. Run the training scripts or restore the model files first.")
         return
     preferred_order = [
-        "DistilBERT",
         "TF-IDF Bigram + SVM",
         "Count Bigram + SVM",
         "Count Bigram + Logistic Regression",
         "Count Unigram + Logistic Regression",
+        "DistilBERT",
     ]
     ordered_model_names = [name for name in preferred_order if name in model_names] + [name for name in model_names if name not in preferred_order]
     model_name = st.selectbox("Choose a model", ordered_model_names, index=0)
