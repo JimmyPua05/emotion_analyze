@@ -65,35 +65,40 @@ STOPWORDS = {
 }
 
 
+import nltk
+from nltk.stem import WordNetLemmatizer
+
+def _ensure_nltk_resources():
+    try:
+        nltk.data.find('corpora/wordnet')
+    except LookupError:
+        nltk.download('wordnet', quiet=True)
+    try:
+        nltk.data.find('corpora/omw-1.4')
+    except LookupError:
+        nltk.download('omw-1.4', quiet=True)
+
+_ensure_nltk_resources()
+_lemmatizer = WordNetLemmatizer()
+
 def lemmatize_token(token: str) -> str:
-    """Normalize common English suffixes without external downloads.
+    """Normalize words using true WordNet Lemmatization.
 
-    The assignment asks for stemming or lemmatization. A full WordNet lemmatizer
-    needs extra downloaded data, so this project uses a small rule-based fallback
-    that is easy to explain in a presentation. It handles common social media
-    forms such as `feeling` -> `feel`, `loved` -> `love`, and `studies` -> `study`.
+    Handles common social media forms such as `feeling` -> `feel`, 
+    `loved` -> `love`, and `studies` -> `study`.
     """
-
     token = token.lower().strip()
-    if len(token) <= 3:
+    if not token:
         return token
-    if token.endswith("ies") and len(token) > 4:
-        return f"{token[:-3]}y"
-    if token.endswith("ing") and len(token) > 5:
-        root = token[:-3]
-        if len(root) > 2 and root[-1] == root[-2]:
-            root = root[:-1]
-        return root
-    if token.endswith("ed") and len(token) > 4:
-        root = token[:-2]
-        if root.endswith(("v", "t")):
-            return f"{root}e"
-        return root
-    if token.endswith("es") and len(token) > 4 and not token.endswith(("ses", "xes")):
-        return token[:-2]
-    if token.endswith("s") and len(token) > 4 and not token.endswith(("ss", "us", "is")):
-        return token[:-1]
-    return token
+        
+    # Lemmatize as verb first to catch action words
+    lemmatized = _lemmatizer.lemmatize(token, pos='v')
+    
+    # If unchanged, try lemmatizing as noun
+    if lemmatized == token:
+        lemmatized = _lemmatizer.lemmatize(token, pos='n')
+        
+    return lemmatized
 
 
 def clean_text(text: str) -> str:

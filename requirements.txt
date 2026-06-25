@@ -5,7 +5,4 @@ streamlit
 plotly
 joblib
 wordcloud
-torch
-transformers
-torch
-transformers
+nltk
