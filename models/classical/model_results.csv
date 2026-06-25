@@ -1,6 +1,6 @@
 model_id,display_name,feature_method,classifier,model_path,ngram_range,accuracy,precision,recall,f1
-count_bigram__svm,Count Bigram + SVM,Count Bigram,SVM,models/classical/count_bigram__svm.joblib,"(1, 2)",0.89,0.8901003241822181,0.89,0.8898568466098461
-tfidf_bigram__svm,TF-IDF Bigram + SVM,TF-IDF Bigram,SVM,models/classical/tfidf_bigram__svm.joblib,"(1, 2)",0.8897916666666666,0.8896891722539978,0.8897916666666666,0.8896408621117405
-count_bigram__logistic_regression,Count Bigram + Logistic Regression,Count Bigram,Logistic Regression,models/classical/count_bigram__logistic_regression.joblib,"(1, 2)",0.880625,0.8811208339554558,0.880625,0.880549295978739
-count_unigram__logistic_regression,Count Unigram + Logistic Regression,Count Unigram,Logistic Regression,models/classical/count_unigram__logistic_regression.joblib,"(1, 1)",0.8445833333333334,0.8455814072996282,0.8445833333333334,0.8445052363436618
-distilbert,DistilBERT,Transformer,DistilBERT,models/distilbert_emotion,not applicable,0.9075,0.9078534933530744,0.9075,0.9073124049596737
+count_bigram__svm,Count Bigram + SVM,Count Bigram,SVM,models/classical/count_bigram__svm.joblib,"(1, 2)",0.9181666666666668,0.9183453692228056,0.9181666666666668,0.9181646209245958
+tfidf_bigram__svm,TF-IDF Bigram + SVM,TF-IDF Bigram,SVM,models/classical/tfidf_bigram__svm.joblib,"(1, 2)",0.9153333333333332,0.9153789201777776,0.9153333333333332,0.915288773180204
+count_bigram__logistic_regression,Count Bigram + Logistic Regression,Count Bigram,Logistic Regression,models/classical/count_bigram__logistic_regression.joblib,"(1, 2)",0.9106666666666666,0.9111348919712432,0.9106666666666666,0.9106792609303764
+count_unigram__logistic_regression,Count Unigram + Logistic Regression,Count Unigram,Logistic Regression,models/classical/count_unigram__logistic_regression.joblib,"(1, 1)",0.8735,0.8744535215600275,0.8735,0.8735384799703086
+distilbert,DistilBERT,Transformer,DistilBERT,models/distilbert_emotion,not applicable,0.9181666666666667,0.9187500149554844,0.9181666666666667,0.9182180515982186

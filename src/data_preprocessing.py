@@ -176,10 +176,10 @@ def prepare_dataset(records: Iterable[dict] | None = None) -> pd.DataFrame:
         
         df = pd.DataFrame(rows)
         
-        print("Sampling 4000 rows per emotion (oversampling smaller classes)...")
+        print("Sampling 5000 rows per emotion (oversampling smaller classes)...")
         balanced_dfs = []
         for emotion, group in df.groupby("emotion"):
-            balanced_dfs.append(group.sample(n=4000, replace=True, random_state=42))
+            balanced_dfs.append(group.sample(n=5000, replace=True, random_state=42))
         df = pd.concat(balanced_dfs).sample(frac=1, random_state=42).reset_index(drop=True)
         print(f"Total balanced dataset size: {len(df)}")
     else:
