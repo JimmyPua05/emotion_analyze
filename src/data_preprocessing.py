@@ -1,4 +1,4 @@
-﻿"""Data loading and text preprocessing for emotion classification.
+"""Data loading and text preprocessing for emotion classification.
 
 The app uses the DAIR Emotion dataset format with these columns: `text`,
 `emotion`, and `clean_text`. This module keeps preprocessing simple and
@@ -140,13 +140,43 @@ def prepare_dataset(records: Iterable[dict] | None = None) -> pd.DataFrame:
         except ImportError as exc:
             raise ImportError("Install `datasets` to download the Emotion dataset.") from exc
 
+        print("Loading DAIR Emotion dataset...")
         dataset = load_dataset("dair-ai/emotion")
         label_names = dataset["train"].features["label"].names
         rows = []
         for split in dataset:
             for item in dataset[split]:
                 rows.append({"text": item["text"], "emotion": label_names[item["label"]]})
+        
+        print("Loading GoEmotions dataset...")
+        go_dataset = load_dataset("go_emotions")
+        go_label_names = go_dataset["train"].features["labels"].feature.names
+        
+        label_map = {
+            "anger": "anger", "annoyance": "anger",
+            "fear": "fear", "nervousness": "fear",
+            "joy": "joy", "amusement": "joy", "excitement": "joy",
+            "love": "love", "caring": "love",
+            "sadness": "sadness", "grief": "sadness",
+            "surprise": "surprise", "realization": "surprise"
+        }
+        
+        for split in go_dataset:
+            for item in go_dataset[split]:
+                labels = item["labels"]
+                if len(labels) == 1:
+                    label_name = go_label_names[labels[0]]
+                    if label_name in label_map:
+                        rows.append({"text": item["text"], "emotion": label_map[label_name]})
+        
         df = pd.DataFrame(rows)
+        
+        print("Undersampling to 2370 rows per emotion...")
+        balanced_dfs = []
+        for emotion, group in df.groupby("emotion"):
+            balanced_dfs.append(group.sample(n=2370, random_state=42))
+        df = pd.concat(balanced_dfs).sample(frac=1, random_state=42).reset_index(drop=True)
+        print(f"Total balanced dataset size: {len(df)}")
     else:
         df = pd.DataFrame(records)
 
