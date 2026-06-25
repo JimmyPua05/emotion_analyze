@@ -1,6 +1,6 @@
 model_id,display_name,feature_method,classifier,model_path,ngram_range,accuracy,precision,recall,f1
-tfidf_bigram__svm,TF-IDF Bigram + SVM,TF-IDF Bigram,SVM,models/classical/tfidf_bigram__svm.joblib,"(1, 2)",0.7781293952180028,0.7788955980586608,0.7781293952180028,0.7783940934180935
-count_bigram__logistic_regression,Count Bigram + Logistic Regression,Count Bigram,Logistic Regression,models/classical/count_bigram__logistic_regression.joblib,"(1, 2)",0.7668776371308017,0.7698436540382534,0.7668776371308017,0.7677853223656724
-count_bigram__svm,Count Bigram + SVM,Count Bigram,SVM,models/classical/count_bigram__svm.joblib,"(1, 2)",0.7651195499296765,0.7668772432683232,0.7651195499296765,0.7656561157304657
-count_unigram__logistic_regression,Count Unigram + Logistic Regression,Count Unigram,Logistic Regression,models/classical/count_unigram__logistic_regression.joblib,"(1, 1)",0.7482419127988749,0.7490782825648952,0.7482419127988749,0.748566123987782
-distilbert,DistilBERT,Transformer,DistilBERT,models/distilbert_emotion,not applicable,0.7053445850914205,0.7668882936539753,0.7053445850914205,0.6953100287267527
+count_bigram__svm,Count Bigram + SVM,Count Bigram,SVM,models/classical/count_bigram__svm.joblib,"(1, 2)",0.89,0.8901003241822181,0.89,0.8898568466098461
+tfidf_bigram__svm,TF-IDF Bigram + SVM,TF-IDF Bigram,SVM,models/classical/tfidf_bigram__svm.joblib,"(1, 2)",0.8897916666666666,0.8896891722539978,0.8897916666666666,0.8896408621117405
+count_bigram__logistic_regression,Count Bigram + Logistic Regression,Count Bigram,Logistic Regression,models/classical/count_bigram__logistic_regression.joblib,"(1, 2)",0.880625,0.8811208339554558,0.880625,0.880549295978739
+count_unigram__logistic_regression,Count Unigram + Logistic Regression,Count Unigram,Logistic Regression,models/classical/count_unigram__logistic_regression.joblib,"(1, 1)",0.8445833333333334,0.8455814072996282,0.8445833333333334,0.8445052363436618
+distilbert,DistilBERT,Transformer,DistilBERT,models/distilbert_emotion,not applicable,0.9075,0.9078534933530744,0.9075,0.9073124049596737

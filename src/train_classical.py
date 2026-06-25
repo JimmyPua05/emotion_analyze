@@ -206,32 +206,38 @@ def train_all_models() -> pd.DataFrame:
     details: list[dict] = []
     classifiers = get_classifiers()
 
-    for feature in get_feature_configs():
-        for classifier_id, classifier in classifiers.items():
-            if feature.model_id_prefix == "word2vec" and classifier_id == "naive_bayes":
-                continue
+    selected_combinations = [
+        ("tfidf_bigram", "svm"),
+        ("count_bigram", "svm"),
+        ("count_bigram", "logistic_regression"),
+        ("count_unigram", "logistic_regression"),
+    ]
 
-            model_id = f"{feature.model_id_prefix}__{classifier_id}"
-            display_name = f"{feature.display_name} + {display_classifier_name(classifier_id)}"
-            model_path = MODEL_DIR / f"{model_id}.joblib"
+    for feature_id, classifier_id in selected_combinations:
+        feature = next(f for f in get_feature_configs() if f.model_id_prefix == feature_id)
+        classifier = classifiers[classifier_id]
+        
+        model_id = f"{feature.model_id_prefix}__{classifier_id}"
+        display_name = f"{feature.display_name} + {display_classifier_name(classifier_id)}"
+        model_path = MODEL_DIR / f"{model_id}.joblib"
 
-            model = build_pipeline(feature, classifier)
-            model.fit(X_train, y_train)
-            summary, detail = evaluate_model(model, X_test, y_test)
-            joblib.dump(model, model_path)
+        model = build_pipeline(feature, classifier)
+        model.fit(X_train, y_train)
+        summary, detail = evaluate_model(model, X_test, y_test)
+        joblib.dump(model, model_path)
 
-            row = {
-                "model_id": model_id,
-                "display_name": display_name,
-                "feature_method": feature.display_name,
-                "classifier": display_classifier_name(classifier_id),
-                "model_path": str(model_path.relative_to(PROJECT_ROOT)),
-                "ngram_range": feature.ngram_range,
-                **summary,
-            }
-            results.append(row)
-            details.append({**row, **detail})
-            print(f"Saved {display_name}: F1={summary['f1']:.3f}")
+        row = {
+            "model_id": model_id,
+            "display_name": display_name,
+            "feature_method": feature.display_name,
+            "classifier": display_classifier_name(classifier_id),
+            "model_path": str(model_path.relative_to(PROJECT_ROOT)),
+            "ngram_range": feature.ngram_range,
+            **summary,
+        }
+        results.append(row)
+        details.append({**row, **detail})
+        print(f"Saved {display_name}: F1={summary['f1']:.3f}")
 
     results_df = pd.DataFrame(results).sort_values("f1", ascending=False)
     results_df.to_csv(RESULTS_PATH, index=False)
