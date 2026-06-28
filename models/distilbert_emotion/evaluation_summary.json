@@ -3,10 +3,9 @@
   "feature_method": "Transformer",
   "classifier": "DistilBERT",
   "evaluation_split": "Same 20% stratified split used by src.train_transformer, random_state=42",
-  "rows_evaluated": 4000,
-  "accuracy": 0.9565,
-  "precision": 0.9567428696142654,
-  "recall": 0.9565,
-  "f1": 0.9564976753278538,
-  "device": "cuda"
+  "rows_evaluated": 6000,
+  "accuracy": 0.9335,
+  "precision": 0.9336675941725173,
+  "recall": 0.9335,
+  "f1": 0.9334587987178732
 }

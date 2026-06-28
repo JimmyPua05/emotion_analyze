@@ -157,7 +157,7 @@ def evaluation_strategy_argument(training_arguments_class) -> dict[str, str]:
         return {"eval_strategy": "epoch"}
     return {"evaluation_strategy": "epoch"}
 
-def fine_tune_distilbert(epochs: int = 2, batch_size: int = 8, sample_size: int | None = None) -> Path:
+def fine_tune_distilbert(epochs: int = 3, batch_size: int = 8, sample_size: int | None = None) -> Path:
     """Fine-tune DistilBERT and save it for the Streamlit app."""
 
     os.environ.setdefault("USE_TF", "0")
@@ -250,7 +250,7 @@ def parse_args() -> argparse.Namespace:
     """Parse command-line arguments for transformer training."""
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("--epochs", type=int, default=2)
+    parser.add_argument("--epochs", type=int, default=3)
     parser.add_argument("--batch-size", type=int, default=8)
     parser.add_argument("--sample-size", type=int, default=None)
     return parser.parse_args()
