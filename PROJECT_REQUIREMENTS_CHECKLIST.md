@@ -26,7 +26,7 @@ implemented in the code.
 
 - Lowercasing, URL removal, mention removal, punctuation/number removal: `src/data_preprocessing.py`
 - Tokenization and stopword removal: `src/data_preprocessing.py`
-- Lightweight lemmatization/stemming: `src/data_preprocessing.py`, `lemmatize_token()`
+- WordNet Lemmatization: `src/data_preprocessing.py`, `lemmatize_token()`
 
 ## Feature Extraction
 

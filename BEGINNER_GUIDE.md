@@ -289,7 +289,7 @@ The project preprocessing does these things:
 5. Remove punctuation and numbers
 6. Split text into words
 7. Remove stopwords
-8. Apply lightweight lemmatization/stemming
+8. Apply WordNet Lemmatization
 
 The code is in:
 
@@ -1168,7 +1168,7 @@ python -m src.train_classical
 Train DistilBERT:
 
 ```bash
-python -m src.train_transformer --epochs 2 --batch-size 8
+python -m src.train_transformer --epochs 3 --batch-size 8
 ```
 
 ## 62. Final Advice For The Team

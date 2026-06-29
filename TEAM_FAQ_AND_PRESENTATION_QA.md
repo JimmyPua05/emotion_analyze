@@ -116,7 +116,7 @@ We use:
 - punctuation and number removal
 - tokenization
 - stopword removal
-- lightweight lemmatization/stemming
+- WordNet Lemmatization
 
 ### What is tokenization?
 

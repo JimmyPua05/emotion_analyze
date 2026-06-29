@@ -193,7 +193,7 @@ This keeps all emotion labels in one place so the app, charts, and models use th
 
 ### lemmatize_token()
 
-This function performs lightweight lemmatization/stemming. It normalizes common word endings:
+This function performs WordNet Lemmatization. It normalizes common word endings:
 
 ```text
 feeling -> feel
@@ -213,7 +213,7 @@ This is the main cleaning function. It:
 - removes hashtag symbols
 - removes punctuation and numbers
 - removes stopwords
-- applies lightweight lemmatization/stemming
+- applies WordNet Lemmatization
 
 ### preprocess_text()
 
@@ -450,7 +450,7 @@ Use this simple flow during presentation:
 
 1. Our project detects emotions in social media posts.
 2. We use six emotion labels: sadness, joy, love, anger, fear, and surprise.
-3. We preprocess text by cleaning, tokenizing, removing stopwords, and applying lightweight lemmatization/stemming.
+3. We preprocess text by cleaning, tokenizing, removing stopwords, and applying WordNet Lemmatization.
 4. We compare CountVectorizer, TF-IDF, Word2Vec, and DistilBERT.
 5. We train several models and compare them using accuracy, precision, recall, F1-score, and confusion matrix.
 6. In the app, users type text, choose a model, and get prediction confidence scores.
